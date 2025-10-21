@@ -61,13 +61,11 @@ gsap.from(".hero-text p", {
   ease: "power3.out"
 });
 
-gsap.from(".hero-text .cta", {
-  opacity: 0,
-  scale: 0.8,
-  duration: 0.8,
-  delay: 0.6,
-  ease: "back.out(1.7)"
-});
+// Fix: Hero "View Work" button animation
+gsap.fromTo(".hero-text .cta",
+  { opacity: 0, scale: 0.8 },
+  { opacity: 1, scale: 1, duration: 0.8, delay: 0.6, ease: "back.out(1.7)" }
+);
 
 gsap.from(".hero-image img", {
   opacity: 0,
