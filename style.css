@@ -1,4 +1,4 @@
-/* ---------- Base ---------- */
+/* ---------- Base ---------- */ 
 body {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
@@ -21,14 +21,13 @@ a {
 a:hover { color: #000000; }
 
 /* ---------- Navbar ---------- */
-/* NOTE: we give an explicit height so the body padding can match it exactly */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  height: 72px;            /* <-- explicit navbar height */
-  position: fixed;         /* stays visible while scrolling */
+  height: 72px;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -38,15 +37,13 @@ a:hover { color: #000000; }
   box-sizing: border-box;
 }
 
-/* brand */
 .brand { 
   font-weight: 700; 
   font-size: 1.5rem; 
-  color: #062d59;
+  color: #011c39;
   line-height: 1;
 }
 
-/* nav links */
 .nav-links {
   display: flex;
   gap: 24px;
@@ -66,24 +63,23 @@ a:hover { color: #000000; }
   color: #fff;
 }
 
-/* Hire Me button — explicitly sized so it won't be clipped */
 .cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px;           /* fixed height */
-  padding: 0 16px;        /* horizontal padding */
-  background: #90ee90;
+  height: 40px;
+  padding: 0 16px;
+  background: #80eaee;
   color: #000;
   border: none;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  flex-shrink: 0;         /* do not shrink on small screens */
+  flex-shrink: 0;
   box-sizing: border-box;
 }
-.cta:hover { background: #32cd32; }
+.cta:hover { background: #199d96; }
 
 /* ---------- Hamburger ---------- */
 .hamburger { 
@@ -92,7 +88,7 @@ a:hover { color: #000000; }
   gap: 5px; 
   cursor: pointer; 
   transition: transform 0.3s;
-  z-index: 1001; /* ensure above menu */
+  z-index: 1001;
   height: 40px;
   align-items: center;
   justify-content: center;
@@ -106,7 +102,6 @@ a:hover { color: #000000; }
   transition: all 0.3s ease;
   display: block;
 }
-/* Hamburger animation to X */
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -119,26 +114,144 @@ a:hover { color: #000000; }
 
 /* ---------- Hero ---------- */
 .hero {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 80px 32px; flex-wrap: wrap; gap: 32px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 80px 32px; 
+  flex-wrap: wrap; 
+  gap: 32px;
   box-sizing: border-box;
-}
-.hero-text { max-width: 500px; }
-.hero-text h1 { font-size: 2.5rem; margin-bottom: 16px; }
-.hero-text p { font-size: 1.1rem; margin-bottom: 24px; }
-.hero-image img {
-  width: 200px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  background-image: url(Home.png);  
+  background-size: cover;                
+  background-position: center center;    
+  background-repeat: no-repeat;          
+  position: relative;                    
+  min-height: 100vh;                     
 }
 
-/* ---------- Name Highlight ---------- */
+/* ✅ Full clear image (no opacity overlay) */
+.hero::before,
+#about::before,
+#services::before,
+#projects::before,
+#contact::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0); /* fully transparent */
+  z-index: 0;
+}
+
+.hero-text, .hero-image {
+  position: relative;  
+  z-index: 1;
+}
+
+.hero-text { 
+  max-width: 500px; 
+  top: -40px; 
+  position: relative;
+}
+#hi {
+  color: #fffafa;
+}
+
+@media (min-width: 769px) {
+  .hero-text {
+    top: -160px;
+  }
+
+  .hero-image img {
+    position: relative;
+    top: -170px; 
+    left: -75px;
+  }
+}
+
+.hero-text h1 { font-size: 2.5rem; margin-bottom: 16px; }
+
+/* ✅ Professional grey text for hero paragraph */
+.hero-text p { 
+  font-size: 1.1rem; 
+  margin-bottom: 24px; 
+  color: #282626; /* elegant dark grey */
+}
+
+.hero-image img {
+  width: 200px; 
+  border-radius: 50%; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 .highlight {
-  color: #062d59;
+  color: #011c39;
   font-weight: 700;
+}
+
+/* ---------- About Section ---------- */
+#about {
+  background-image: url(aboutus.jpg); 
+  background-size: cover;               
+  background-position: center center;   
+  background-repeat: no-repeat;         
+  position: relative;                   
+  color: #f5f5f5;                       
+  border-bottom: 1px solid #e5e7eb;
+  padding: 100px 32px;                  
+  min-height: 80vh;                     
+  box-sizing: border-box;
+}
+
+#about > * {
+  position: relative;
+  z-index: 1;
+}
+#about p {
+  color: #000000; /* pure black */
+}
+
+/* ---------- Services Section ---------- */
+#services {
+  background-image: url(services.jpg); 
+  background-size: cover;                  
+  background-position: center center;      
+  background-repeat: no-repeat;            
+  position: relative;                       
+  color: #f5f5f5;                          
+  padding: 80px 32px;
+  min-height: 80vh;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#services > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Projects Section ---------- */
+#projects {
+  background-image: url(project.jpg); 
+  background-size: cover;                  
+  background-position: center center;      
+  background-repeat: no-repeat;            
+  position: relative;                       
+  color: #f5f5f5;                          
+  padding: 80px 32px;
+  min-height: 80vh;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#projects > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- Sections ---------- */
 section { padding: 80px 32px; border-bottom: 1px solid #e5e7eb; }
-section h2 { color: #1a3d7c; font-weight: 700; }
+section h2 { color: #083c4c; font-weight: 700; }
 
 /* ---------- Cards ---------- */
 .skills-grid, .services-grid, .projects-grid {
@@ -149,26 +262,80 @@ section h2 { color: #1a3d7c; font-weight: 700; }
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 24px;
-  background: #d4e7fb;
+  background: #ffffff;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .skill-card:hover, .service-card:hover, .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
-.project-link { display: inline-block; margin-top: 12px; font-weight: 600; color: #0073c0; border-bottom: 2px solid transparent; transition: 0.3s; }
-.project-link:hover { border-bottom: 2px solid #000; }
 
-/* ---------- Contact ---------- */
+/* ✅ Paragraph text color inside all cards */
+.service-card p,
+.skill-card p,
+.project-card p {
+  color: #080808;
+}
+
+.project-link { display: inline-block; margin-top: 12px; font-weight: 600; color: #04636f; border-bottom: 2px solid transparent; transition: 0.3s; }
+.project-link:hover { border-bottom: 2px solid #000000; }
+
+/* ---------- Contact Section ---------- */
+#contact {
+  background-image: url(contact.jpg); 
+  background-size: cover;                  
+  background-position: center center;      
+  background-repeat: no-repeat;            
+  position: relative;                       
+  color: #000000;                          
+  padding: 80px 32px;
+  min-height: 80vh;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Contact Info & Social ---------- */
 .contact-info { list-style: none; padding: 0; margin: 16px 0 0 0; }
 .contact-info li { margin-bottom: 12px; font-size: 1.1rem; }
+
+.contact-info a {
+  color: #1c1c1c;
+  font-weight: 600;
+}
+.contact-info a:hover {
+  border-bottom:solid #000;
+  color: #000000;
+}
+#contact p {
+  color: #000000;
+}
+
+/* ---------- Social Links ---------- */
 .social-links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px; }
-.social-links a { font-weight: 600; padding: 8px 12px; border-radius: 8px; transition: all 0.3s ease; }
+.social-links a { 
+  font-weight: 600; 
+  padding: 8px 12px; 
+  border-radius: 8px; 
+  transition: all 0.3s ease; 
+  transform: scale(1);
+}
 .social-links a:nth-child(1) { background: #0077b5; color: #fff; }
 .social-links a:nth-child(2) { background: #e4405f; color: #fff; }
 .social-links a:nth-child(3) { background: #3b5998; color: #fff; }
 .social-links a:nth-child(4) { background: #25d366; color: #fff; }
-.social-links a:hover { opacity: 0.8; }
+
+/* ✅ Hover effect for social icons */
+.social-links a:hover {
+  opacity: 1.9;
+  transform: scale(2.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
@@ -187,10 +354,31 @@ section h2 { color: #1a3d7c; font-weight: 700; }
   }
   .nav-links.active { right: 0; }
 
-  /* reduce navbar padding on small screens to keep everything visible */
   .navbar { padding: 12px 20px; height: 64px; }
   body { padding-top: 64px; }
 
-  .hero { text-align: center; justify-content: center; }
-  .hero-image img { margin-top: 16px; }
+  .hero { 
+    padding: 60px 20px;
+    text-align: center;
+    min-height: 80vh;
+    background-position: center top; 
+  }
+
+  .hero-text {
+    top: -90px;
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 150px;
+    margin-top: 0;
+    position: relative;
+    top: -120px;
+  }
+
+  #about, #services, #projects, #contact {
+    padding: 60px 20px;
+    min-height: auto;
+    background-position: center top; 
+  }
 }
