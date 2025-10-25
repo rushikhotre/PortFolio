@@ -381,4 +381,11 @@ section h2 { color: #083c4c; font-weight: 700; }
     min-height: auto;
     background-position: center top; 
   }
+  #hi {
+  font-size: 1.8rem;   /* smaller heading on mobile */
+  }
+
+.hero-text p {
+  font-size: 1rem;     /* slightly smaller paragraph */
+  }
 }
